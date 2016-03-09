@@ -1,0 +1,67 @@
+body {
+    	color: #666;
+}
+
+h1 {
+    	color: #666;
+}
+
+h2 {
+	color: #666;
+	font-family: monospace, 'Courier New', Courier;
+}
+
+.icons {
+	opacity: 0.85;
+    filter: alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.icons:hover {
+	opacity: 0.65;
+    filter: alpha(opacity=65); /* For IE8 and earlier */
+}
+
+.full-grid {
+    background: rgb(250, 250, 250);
+    margin: 1em auto;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+#panel1 {
+	margin: 11px auto;
+	padding: 12px;
+	font-family: monospace, 'Courier New', Courier;
+	min-width: 500px;
+}
+
+#panel2 {
+	padding: 12px;
+	text-align: left;
+	font-family: monospace, 'Courier New', Courier;
+	min-width: 500px;
+}
+
+.entries {
+	border-top: 0px solid #aaa;
+    border-bottom: 0px solid #aaa;
+	border-left: 1px solid #aaa;
+    border-right: 0px solid #aaa;
+	margin-left: 22px;
+}
+
+p {
+	color: #444;
+    padding: 3px;
+    margin: 3px;
+}
+
+h3{
+	color: #666;
+}
+
+.items{
+    color: #444;
+	text-decoration: none;
+}
+
