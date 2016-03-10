@@ -1,9 +1,15 @@
+html {
+	height: 100%;
+}
+
 body {
-    	color: #666;
+	height: 100%;
+    color: #666;
+	background-color: #F0F0F0;
 }
 
 h1 {
-    	color: #666;
+	color: #666;
 }
 
 h2 {
@@ -40,6 +46,7 @@ h2 {
 	text-align: left;
 	font-family: monospace, 'Courier New', Courier;
 	min-width: 500px;
+	min-height: 250px;
 }
 
 .entries {
@@ -65,3 +72,6 @@ h3{
 	text-decoration: none;
 }
 
+#main{
+	background-color: #FFFFFF;
+}
