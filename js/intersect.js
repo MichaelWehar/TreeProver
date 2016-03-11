@@ -33,19 +33,19 @@ function relabel(formula){
 	startRelabel("", map, formula);
 }
 
-function startRelabel(prefix, map, formula){
+function startRelabel(suffix, map, formula){
 	if(formula.isVariable){
 		if(map[formula.text] != null){
 			formula.text = map[formula.text];
 		}
 		else{
-			map[formula.text] = prefix + getName(Object.keys(map).length);
+			map[formula.text] = getName(Object.keys(map).length) + suffix;
 			formula.text = map[formula.text];
 		}
 	}
 	else{
 		for(var i=0; i<formula.children.length; i++){
-			startRelabel(prefix, map, formula.children[i]);
+			startRelabel(suffix, map, formula.children[i]);
 		}
 	}
 }
@@ -119,19 +119,19 @@ function traverse(formula1, formula2, temp1, temp2){
 	
 	if(temp1.isVariable && temp2.isVariable){
 		if(temp1.text != temp2.text){
-			//substitute(temp1, temp2.text, formula1);
+			substitute(temp1, temp2.text, formula1);
 			substitute(temp1, temp2.text, formula2);
 		}
 	}
 	else if(temp2.isVariable){
 		if(isFound(temp2.text, temp1)) return false;
-		//substitute(temp1, temp2.text, formula1);
+		substitute(temp1, temp2.text, formula1);
 		substitute(temp1, temp2.text, formula2);
 	}
 	else if(temp1.isVariable){
 		if(isFound(temp1.text, temp2)) return false;
 		substitute(temp2, temp1.text, formula1);
-		//substitute(temp2, temp1.text, formula2);
+		substitute(temp2, temp1.text, formula2);
 	}
 	else if(temp1.text != temp2.text) return false;
 	else{

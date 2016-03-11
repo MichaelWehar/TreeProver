@@ -24,13 +24,19 @@
 		if(currentNode1 == null){
 			currentNode1 = node;
 			$(node.contentImg).find("img").attr("src", "img/blue.png");
-			$("#formula1").html(toStringAltHighlight(node.formulaContent));
+			
+			var copy = {};
+			copyFormula(node.formulaContent, copy);
+			var map = {};
+			startRelabel("<sub>1</sub>", map, copy);
+			var tempStr = toStringAltHighlight(copy);
+			
+			$("#formula1").html(tempStr);
 		}
 		else if(currentNode2 == null){
 			$(currentNode1.contentImg).find("img").attr("src", "img/red.png");
 			currentNode2 = node;
 			$(node.contentImg).find("img").attr("src", "img/red.png");
-			$("#formula2").html(toStringAltHighlight(node.formulaContent));
 			
 			var tempFormula = {isVariable: false, text: "->", children: []};
 			tempFormula.children[0] = node.formulaContent;
@@ -103,8 +109,22 @@
 			var tempA = document.createElement('a');
 			$(tempA).addClass("items");
 			tempA.href = "javascript: return false;";
-			var tempStr1 = toStringAltHighlight(parent1.formulaContent);
-			var tempStr2 = toStringAltHighlight(parent2.formulaContent);
+			
+			var copy1 = {};
+			var copy2 = {};
+			copyFormula(parent1.formulaContent, copy1);
+			copyFormula(parent2.formulaContent, copy2);
+			var map1 = {};
+			var map2 = {};
+			startRelabel("<sub>1</sub>", map1, copy1);
+			startRelabel("<sub>2</sub>", map2, copy2);
+			
+			var tempStr1 = toStringAltHighlight(copy1);
+			var tempStr2 = toStringAltHighlight(copy2);
+			
+			$("#formula1").html(tempStr1);
+			$("#formula2").html(tempStr2);
+			
 			var tempStr3 = toStringAltHighlight(formula);
 			tempA.onclick = function(){highlightNodes(parent1, parent2, tempStr1, tempStr2, tempStr3);};
 			$(tempA).append(tempStr3);
@@ -135,8 +155,22 @@
 			var tempA = document.createElement('a');
 			$(tempA).addClass("items");
 			tempA.href = "javascript: return false;";
-			var tempStr1 = toStringAltHighlight(parent1.formulaContent);
-			var tempStr2 = toStringAltHighlight(parent2.formulaContent);
+			
+			var copy1 = {};
+			var copy2 = {};
+			copyFormula(parent1.formulaContent, copy1);
+			copyFormula(parent2.formulaContent, copy2);
+			var map1 = {};
+			var map2 = {};
+			startRelabel("<sub>1</sub>", map1, copy1);
+			startRelabel("<sub>2</sub>", map2, copy2);
+			
+			var tempStr1 = toStringAltHighlight(copy1);
+			var tempStr2 = toStringAltHighlight(copy2);
+			
+			$("#formula1").html(tempStr1);
+			$("#formula2").html(tempStr2);
+			
 			var tempStr3 = "Empty";
 			tempA.onclick = function(){highlightNodes(parent1, parent2, tempStr1, tempStr2, tempStr3);};
 			$(tempA).append("Empty");
