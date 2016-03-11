@@ -1,5 +1,4 @@
-/*! Bing Search Helper v1.0.0 - requires jQuery v1.7.2 */
-/* Modified by Michael Wehar */
+/* Author: Michael Wehar */
 
 	var currentNode1 = null;
 	var currentNode2 = null;
